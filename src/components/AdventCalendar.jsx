@@ -3,6 +3,11 @@ import { useState } from "react";
 import data from "../data.json";
 import "../styles/adventcalender.css";
 import hat from "../assets/hat.png";
+import son1 from "../assets/audio/1.mp3";
+import son2 from "../assets/audio/2.mp3";
+import son3 from "../assets/audio/3.mp3";
+import son4 from "../assets/audio/4.mp3";
+import son5 from "../assets/audio/5.mp3";
 
 export default function AdventCalendar() {
   const [isLined, setIsLined] = useState([]);
@@ -10,15 +15,38 @@ export default function AdventCalendar() {
   const [count, setCount] = useState(1);
   //const noOpen = () => {};
   //const [couldOpen, setCouldOpen] = useState(noOpen);
+
+  const getRandomSound = () => {
+    const randomNumber = Math.floor(Math.random() * 5) + 1;
+    switch (randomNumber) {
+      case 1:
+        return new Audio(son1);
+      case 2:
+        return new Audio(son2);
+      case 3:
+        return new Audio(son3);
+      case 4:
+        return new Audio(son4);
+      case 5:
+        return new Audio(son5);
+      default:
+        return null;
+    }
+  };
+
   const openWindow = (e) => {
     const value = e.target.id;
     const numberValue = parseInt(value.slice(6), 10);
+    const randomSound = getRandomSound();
     if (count === numberValue) {
       if (isLined.includes(value)) {
         setIsLined([...isLined]);
       } else {
         setIsLined([...isLined, value]);
         setCount(count + 1);
+        if (randomSound) {
+          randomSound.play();
+        }
       }
     } else {
       // toast.error(`Qui ? Qui ? MAIS QUIIIIII ??`, {
