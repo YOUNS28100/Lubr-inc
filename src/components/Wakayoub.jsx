@@ -12,13 +12,24 @@ function Wakayoub() {
     console.log(event.target.id);
     event.target.id ? setScore(score + 1) : setScore(score - 1);
   };
+  // on créé un tableau de longueur égale au nombre de trous pour les taupes, pour mapper dessus et avoir plus de facilité
+  const arraymole = [
+    { id: "0", value: "0" },
+    { id: "1", value: "1" },
+    { id: "2", value: "2" },
+    { id: "3", value: "3" },
+    { id: "4", value: "4" },
+    { id: "5", value: "5" },
+    { id: "6", value: "6" },
+    { id: "7", value: "7" },
+    { id: "8", value: "8" },
+  ];
   // fonction aléatoire entre 1 et max
   const randomnumberget = (max) => {
     1 + Math.floor(Math.random() * max);
   };
   // let pour mettre de l'aléatoire dans le timer
   let timesetout = "";
-
   // on mets en place un timer de Xsecondes
   // on lance une boucle selon le timer ou un nombre de points à atteindre / ne pas atteindre (comme -43)
   const elfspawn = () => {
@@ -50,9 +61,16 @@ function Wakayoub() {
 
   return (
     <>
-      <button type="button" onClick={tapetaupe()}>
-        <img src={isElfed ? "ayoubnormal" : ""} alt="" id="mole1" />
-      </button>
+      {arraymole.map((darthmole) => {
+        <button type="button" onClick={tapetaupe()}>
+          <img
+            src={isElfed ? "ayoubnormal" : ""}
+            alt=""
+            id={`mole${darthmole.value}`}
+            key={darthmole.value}
+          />
+        </button>;
+      })}
     </>
   );
 }
