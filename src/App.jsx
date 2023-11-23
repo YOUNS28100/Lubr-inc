@@ -8,26 +8,29 @@ import data from "./data.json";
 
 function App() {
   const [isLined, setIsLined] = useState([]);
-  const today = new Date().getDate(); // Fonction prenant la date du jour.
+  // const today = new Date().getDate(); // Fonction prenant la date du jour.
 
   const openWindow = (e) => {
-    const value = parseInt(e.currentTarget.id.split('_')[1], 10);
-
-    if (value === today) {
-      if (!isLined.includes(value)) {
-        setIsLined([...isLined, value]);
-      }
+    const value = e.target.id;
+    if (isLined.includes(value)) {
+      setIsLined([...isLined]);
     } else {
-      toast.error(`Qui ? Qui ? MAIS QUIIIIII ??`, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      setIsLined([...isLined, value]);
     }
+
+    //   if (!isLined.includes(value)) {
+    //   }
+    // } else {
+    //   toast.error(`Qui ? Qui ? MAIS QUIIIIII ??`, {
+    //     position: "top-center",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //   });
+    // }
   };
 
   return (
@@ -39,11 +42,9 @@ function App() {
           <ul>
             {data.map((n) => (
               <li
-                className={isLined.includes(n.id) ? "line" : ""}
-                id={`lutin_${n.id}`}
+                className={isLined.includes(`lutin_${n.id}`) ? "line" : ""}
                 key={n.id}
-                onClick={openWindow}
-              >
+                onClick={openWindow}>
                 {n.name}
               </li>
             ))}
