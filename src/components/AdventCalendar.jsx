@@ -1,5 +1,4 @@
 import { useState } from "react";
-//import { toast } from "react-toastify/dist/components";
 import data from "../data.json";
 import "../styles/adventcalender.css";
 import hat from "../assets/hat.png";
@@ -11,10 +10,8 @@ import son5 from "../assets/audio/5.mp3";
 
 export default function AdventCalendar() {
   const [isLined, setIsLined] = useState([]);
-  // const today = new Date().getDate(); // Fonction prenant la date du jour.
-  const [count, setCount] = useState(1);
-  //const noOpen = () => {};
-  //const [couldOpen, setCouldOpen] = useState(noOpen);
+  const today = new Date().getDate(); // Utilise la date actuelle
+  const [showAlert, setShowAlert] = useState(false);
 
   const getRandomSound = () => {
     const randomNumber = Math.floor(Math.random() * 5) + 1;
@@ -35,47 +32,43 @@ export default function AdventCalendar() {
   };
 
   const openWindow = (e) => {
-    const value = e.target.id;
-    const numberValue = parseInt(value.slice(6), 10);
-    const randomSound = getRandomSound();
-    if (count === numberValue) {
-      if (isLined.includes(value)) {
-        setIsLined([...isLined]);
-      } else {
-        setIsLined([...isLined, value]);
-        setCount(count + 1);
+    // Supposons que l'ID de chaque case est de la forme "lutin_X"
+    const id = e.currentTarget.id;
+    const numberValue = parseInt(id.replace("lutin_", ""), 10); // Extrait le nombre de l'ID pour coller les numéros de case au jour du mois.
+
+    if (today === numberValue) {
+      setShowAlert(false);
+      if (!isLined.includes(id)) {
+        setIsLined([...isLined, id]);
+        const randomSound = getRandomSound();
         if (randomSound) {
           randomSound.play();
         }
       }
     } else {
-      // toast.error(`Qui ? Qui ? MAIS QUIIIIII ??`, {
-      //   position: "top-center",
-      //   autoClose: 5000,
-      //   hideProgressBar: false,
-      //   closeOnClick: true,
-      //   pauseOnHover: true,
-      //   draggable: true,
-      //   progress: undefined,
-      // });
+      setShowAlert(true);
+      setTimeout(() => {
+        setShowAlert(false);
+      }, 2000);
     }
   };
 
-  console.log(count);
   return (
     <div className="calendar">
-      <div className="count">
-        On est le {count}
-        {count === 1 ? "er" : ""} décembre, il est temps douvrir le bon paquet !
-      </div>
+      {showAlert && (
+        <div className="custom-alert">
+          Oups ! Vous ne pouvez ouvrir que la case du jour actuel !
+        </div>
+      )}
       <div>
         <ul className="list">
           {data.map((n) => (
             <li
               className={isLined.includes(`lutin_${n.id}`) ? "line" : ""}
-              id={n.id % 2 === 0 ? "red" : "green"}
+              id={`lutin_${n.id}`}
               key={n.id}
-              onClick={openWindow}>
+              onClick={openWindow}
+            >
               {n.name}
             </li>
           ))}
@@ -87,12 +80,13 @@ export default function AdventCalendar() {
             className={
               isLined.includes(`lutin_${l.id}`) ? "window-clicked" : "window"
             }
-            key={l.id}>
-            <button type="button" onClick={openWindow}>
+            key={l.id}
+          >
+            <button type="button" onClick={openWindow} id={`lutin_${l.id}`}>
               {isLined.includes(`lutin_${l.id}`) ? (
-                <img src={l.picture} alt={l.name} id={`lutin_${l.id}`} />
+                <img src={l.picture} alt={l.name} />
               ) : (
-                <img src={hat} alt="chapeau lutin" id={`lutin_${l.id}`} />
+                <img src={hat} alt="chapeau lutin" />
               )}
               {isLined.includes(`lutin_${l.id}`) ? (
                 <></>
