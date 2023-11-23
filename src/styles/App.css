@@ -9,20 +9,51 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 50px;
 }
-.present {
-  width: 150px;
-  height: 150px;
-  background-color: green;
+
+button {
+  border: none;
 }
-.present img {
+.book {
+  border-radius: 10px;
+  width: 10rem;
+  height: 10rem;
+  background-color: whitesmoke;
+  box-shadow: 1px 1px 12px #000;
+  perspective: 2000px;
+  display: flex;
+  align-items: center;
+}
+.book img {
   width: 120px;
   height: 120px;
+  margin-left: 1.6rem;
   opacity: 0;
+  transition: opacity 1.5s;
 }
-.present:active img {
+.cover {
+  top: 0;
+  position: absolute;
+  background-color: lightgray;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transform-origin: 0;
+  box-shadow: 1px 1px 12px #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book:hover img {
   opacity: 1;
+}
+
+.book:hover .cover {
+  transition: all 0.7s;
+
+  transform: rotatey(-80deg);
 }
 /* Les pourcentages représentent la temporalité de l'évènement */
 @keyframes slide {
@@ -47,7 +78,8 @@
 
 /* Effet de neige sur le site  */
 body {
-  background: red;
+  background-image: url("../assets/sapinnoel.png");
+  z-index: -1;
 }
 .intro,
 .intro a {
