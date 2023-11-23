@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Music from "./components/Music";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,7 +11,7 @@ function App() {
   const today = new Date().getDate(); // Fonction prenant la date du jour.
 
   const openWindow = (e) => {
-    const value = parseInt(e.currentTarget.id.split('_')[1], 10);
+    const value = parseInt(e.currentTarget.id.split("_")[1], 10);
 
     if (value === today) {
       if (!isLined.includes(value)) {
@@ -32,7 +32,7 @@ function App() {
 
   return (
     <div className="snowflakes" aria-hidden="true">
-      <ToastContainer />
+      <ToastContainer limit={5} />
       <div className="intro">
         <div className="logo">
           <img src={logo} alt="logo" />
@@ -48,8 +48,8 @@ function App() {
               </li>
             ))}
           </ul>
-          <Music />
         </div>
+        <Music />
         <div className="presents">
           {data.map((l) => (
             <div className="book" key={l.id}>
@@ -93,6 +93,12 @@ function App() {
       <div className="snowflake">❅</div>
       <div className="snowflake">❆</div>
       <div className="snowflake">❄</div>
+      <img
+        className="lutin"
+        src="./src/assets/Lutins/Ayoublutin.gif"
+        alt="Lutin Ayoub"
+        id="lutin"
+      />
     </div>
   );
 }
