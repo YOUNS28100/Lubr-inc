@@ -1,33 +1,45 @@
 import { useState } from "react";
 import data from "../data.json";
+import son1 from "../assets/audio/1.mp3";
+import son2 from "../assets/audio/2.mp3";
+import son3 from "../assets/audio/3.mp3";
+import son4 from "../assets/audio/4.mp3";
+import son5 from "../assets/audio/5.mp3";
 
 export default function AdventCalendar() {
   const [isLined, setIsLined] = useState([]);
-  // const today = new Date().getDate(); // Fonction prenant la date du jour.
   const [incrementValue, setIncrementValue] = useState(0);
+
+  const getRandomSound = () => {
+    const randomNumber = Math.floor(Math.random() * 5) + 1;
+    switch (randomNumber) {
+      case 1:
+        return new Audio(son1);
+      case 2:
+        return new Audio(son2);
+      case 3:
+        return new Audio(son3);
+      case 4:
+        return new Audio(son4);
+      case 5:
+        return new Audio(son5);
+      default:
+        return null;
+    }
+  };
 
   const openWindow = (e) => {
     const value = e.target.id;
+    const randomSound = getRandomSound();
     if (isLined.includes(value)) {
       setIsLined([...isLined]);
     } else {
       setIsLined([...isLined, value]);
       setIncrementValue(incrementValue + 1);
+      if (randomSound) {
+        randomSound.play();
+      }
     }
-
-    //   if (!isLined.includes(value)) {
-    //   }
-    // } else {
-    //   toast.error(`Qui ? Qui ? MAIS QUIIIIII ??`, {
-    //     position: "top-center",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //   });
-    // }
   };
   return (
     <div className="intro">
@@ -40,7 +52,8 @@ export default function AdventCalendar() {
             <li
               className={isLined.includes(`lutin_${n.id}`) ? "line" : ""}
               key={n.id}
-              onClick={openWindow}>
+              onClick={openWindow}
+            >
               {n.name}
             </li>
           ))}
