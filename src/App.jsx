@@ -10,9 +10,11 @@ function App() {
       </div>
       <div className="presents">
         {data.map((l) => (
-          <div className="present" key={l.id}>
+          <div className="book" key={l.id}>
             <img src={l.picture} alt={`lutin${l.id}`} />
-            {l.id}
+            <div className="cover">
+              <p>{l.id}</p>
+            </div>
           </div>
         ))}
       </div>
