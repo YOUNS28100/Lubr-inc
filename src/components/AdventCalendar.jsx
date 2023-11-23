@@ -4,6 +4,7 @@ import data from "../data.json";
 export default function AdventCalendar() {
   const [isLined, setIsLined] = useState([]);
   // const today = new Date().getDate(); // Fonction prenant la date du jour.
+  const [incrementValue, setIncrementValue] = useState(0);
 
   const openWindow = (e) => {
     const value = e.target.id;
@@ -11,6 +12,7 @@ export default function AdventCalendar() {
       setIsLined([...isLined]);
     } else {
       setIsLined([...isLined, value]);
+      setIncrementValue(incrementValue + 1);
     }
 
     //   if (!isLined.includes(value)) {
@@ -29,6 +31,9 @@ export default function AdventCalendar() {
   };
   return (
     <div className="intro">
+      <div className="compteur">
+        On est le {incrementValue}, il est temps douvrir le bon paquet !
+      </div>
       <div className="list">
         <ul>
           {data.map((n) => (
