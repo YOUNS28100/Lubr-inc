@@ -1,0 +1,16 @@
+body {
+  background-color: brown;
+}
+
+.presents {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.present {
+  width: 100px;
+  height: 100px;
+  background-color: green;
+}
