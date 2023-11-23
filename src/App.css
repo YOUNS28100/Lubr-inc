@@ -1,6 +1,13 @@
 body {
   background-color: brown;
 }
+.line {
+  text-decoration: line-through;
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+}
 
 .presents {
   display: flex;
@@ -15,15 +22,13 @@ body {
   background-color: green;
 }
 
-
-
 .present img {
   width: 120px;
   height: 120px;
   opacity: 0;
 }
 
-.present img:hover {
+.present:active img {
   opacity: 1;
 }
 
@@ -32,18 +37,20 @@ body {
 @keyframes slide {
   0% {
     transform: translateX(-100%); /* IceAyoub part de la gauche */
-  } 
+  }
   55% {
     transform: translateX(50vw); /* IceAyoub s'arrête au milieu de l'écran */
-  } 
+  }
   100% {
-    transform: translateX(100vw); /* IceAyoub reprend sa route vers l'extreme droite */
-  } 
+    transform: translateX(
+      100vw
+    ); /* IceAyoub reprend sa route vers l'extreme droite */
+  }
 }
 
 .lutin {
   width: 7em;
   height: 7em;
   position: absolute;
-  animation: slide 3s infinite;
+  animation: slide 4s infinite;
 }
