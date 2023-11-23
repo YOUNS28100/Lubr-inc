@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#button {
+  border: none;
+}
+
+#button img {
+  width: 20px;
+}
