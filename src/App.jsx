@@ -17,33 +17,66 @@ function App() {
   console.log(isLined);
 
   return (
-    <>
-      <div className="logo">
-        <img src={logo} alt="logo" />
-        <ul>
-          {data.map((n) => (
-            <li
-              className={isLined.includes(`lutin_${n.id}`) ? "line" : ""}
-              id={`lutin_${n.id}`}
-              key={n.id}>
-              {n.name}
-            </li>
+    <div className="snowflakes" aria-hidden="true">
+      <div className="intro">
+        {" "}
+        <div className="logo">
+          <img src={logo} alt="logo" />
+          <ul>
+            {data.map((n) => (
+              <li
+                className={isLined.includes(`lutin_${n.id}`) ? "line" : ""}
+                id={`lutin_${n.id}`}
+                key={n.id}>
+                {n.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="presents">
+          {data.map((l) => (
+            <button
+              type="button"
+              className="present"
+              onClick={openWindow}
+              key={l.id}>
+              <img src={l.picture} alt={l.name} id={`lutin_${l.id}`} />
+              {l.id}
+            </button>
           ))}
-        </ul>
+        </div>
       </div>
-      <div className="presents">
-        {data.map((l) => (
-          <button
-            type="button"
-            className="present"
-            onClick={openWindow}
-            key={l.id}>
-            <img src={l.picture} alt={l.name} id={`lutin_${l.id}`} />
-            {l.id}
-          </button>
-        ))}
-      </div>
-    </>
+      <div className="snowflake">❅</div>
+      <div className="snowflake">❅</div>
+      <div className="snowflake">❆</div>
+      <div className="snowflake">❄</div>
+      <div className="snowflake">❅</div>
+      <div className="snowflake">❆</div>
+      <div className="snowflake">❄</div>
+      <div className="snowflake">❅</div>
+      <div className="snowflake">❆</div>
+      <div className="snowflake">❄</div>
+      <div className="snowflake">❅</div>
+      <div className="snowflake">❅</div>
+      <div className="snowflake">❆</div>
+      <div className="snowflake">❄</div>
+      <div className="snowflake">❅</div>
+      <div className="snowflake">❆</div>
+      <div className="snowflake">❄</div>
+      <div className="snowflake">❅</div>
+      <div className="snowflake">❆</div>
+      <div className="snowflake">❄</div>
+      <div className="snowflake">❅</div>
+      <div className="snowflake">❅</div>
+      <div className="snowflake">❆</div>
+      <div className="snowflake">❄</div>
+      <div className="snowflake">❅</div>
+      <div className="snowflake">❆</div>
+      <div className="snowflake">❄</div>
+      <div className="snowflake">❅</div>
+      <div className="snowflake">❆</div>
+      <div className="snowflake">❄</div>
+    </div>
   );
 }
 
