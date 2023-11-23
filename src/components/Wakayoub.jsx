@@ -17,11 +17,11 @@ function Wakayoub() {
     console.info("remplissez moi");
   };
   return (
-    <>
+    <div className="game">
       <div onClick={tapetaupe()}>
-        <img src="" alt="" />
+        <img src="../assets/Lutins/Ayoublutin.gif" alt="ayoub" />
       </div>
-    </>
+    </div>
   );
 }
 export default Wakayoub;

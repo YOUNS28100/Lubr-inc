@@ -1,0 +1,103 @@
+.calendar a {
+  color: #fff;
+}
+
+.line {
+  text-decoration: line-through;
+}
+
+.count {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  background-color: rgba(239, 211, 211, 0.6);
+  padding: 10px;
+  border-radius: 15px;
+}
+
+#red {
+  color: red;
+  font-size: 1.5rem;
+}
+
+#green {
+  color: green;
+  font-size: 1.5rem;
+}
+
+.presents {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.window {
+  border-radius: 10px;
+  width: 10rem;
+  height: 10rem;
+  background-color: whitesmoke;
+  box-shadow: 1px 1px 12px #000;
+  perspective: 2000px;
+  display: flex;
+  align-items: center;
+}
+
+.window img {
+  width: 120px;
+  height: 120px;
+  margin-left: 1.6rem;
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+.window-clicked {
+  border-radius: 10px;
+  width: 10rem;
+  height: 10rem;
+  background-color: whitesmoke;
+  box-shadow: 1px 1px 12px #000;
+  perspective: 2000px;
+  display: flex;
+  align-items: center;
+}
+.window-clicked img {
+  width: 120px;
+  height: 120px;
+  margin-left: 1.6rem;
+  opacity: 1;
+}
+
+.cover {
+  top: 0;
+  position: absolute;
+  background-color: yellow;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  transform-origin: 0;
+  box-shadow: 1px 1px 12px #000;
+  font-size: 4rem;
+  color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.window:hover img {
+  opacity: 1;
+}
+
+.window:hover .cover {
+  transition: all 0.6s;
+
+  transform: rotatey(-80deg);
+}
