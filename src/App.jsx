@@ -1,34 +1,48 @@
+import React, { useState } from "react";
 import Music from "./components/Music";
-import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./styles/App.css";
 import logo from "./assets/logo.png";
 import data from "./data.json";
 
 function App() {
   const [isLined, setIsLined] = useState([]);
+  const today = new Date().getDate(); // Fonction prenant la date du jour.
+
   const openWindow = (e) => {
-    const value = e.target.id;
-    console.log(typeof value);
-    if (isLined.includes(value)) {
-      setIsLined([...isLined]);
+    const value = parseInt(e.currentTarget.id.split('_')[1], 10);
+
+    if (value === today) {
+      if (!isLined.includes(value)) {
+        setIsLined([...isLined, value]);
+      }
     } else {
-      setIsLined([...isLined, value]);
+      toast.error(`Qui ? Qui ? MAIS QUIIIIII ??`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
   };
-  console.log(isLined);
 
   return (
     <div className="snowflakes" aria-hidden="true">
+      <ToastContainer />
       <div className="intro">
-        {" "}
         <div className="logo">
           <img src={logo} alt="logo" />
           <ul>
             {data.map((n) => (
               <li
-                className={isLined.includes(`lutin_${n.id}`) ? "line" : ""}
+                className={isLined.includes(n.id) ? "line" : ""}
                 id={`lutin_${n.id}`}
                 key={n.id}
+                onClick={openWindow}
               >
                 {n.name}
               </li>

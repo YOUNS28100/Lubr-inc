@@ -78,7 +78,8 @@ button {
 
 /* Effet de neige sur le site  */
 body {
-  background: red;
+  background-image: url("../assets/sapinnoel.png");
+  z-index: -1;
 }
 .intro,
 .intro a {
