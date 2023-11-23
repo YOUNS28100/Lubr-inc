@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Music from "./components/Music";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,11 +7,18 @@ import logo from "./assets/logo.png";
 import data from "./data.json";
 
 function App() {
+  const [incrementValue, setIncrementValue] = useState(0);
+
+  const handleClick = () => {
+    setIncrementValue(incrementValue + 1);
+  };
+
   const [isLined, setIsLined] = useState([]);
+
   const today = new Date().getDate(); // Fonction prenant la date du jour.
 
   const openWindow = (e) => {
-    const value = parseInt(e.currentTarget.id.split('_')[1], 10);
+    const value = parseInt(e.currentTarget.id.split("_")[1], 10);
 
     if (value === today) {
       if (!isLined.includes(value)) {
@@ -33,6 +40,9 @@ function App() {
   return (
     <div className="snowflakes" aria-hidden="true">
       <ToastContainer />
+      <div className="compteur">
+        On est le {incrementValue}, il est temps douvrir le bon paquet !
+      </div>
       <div className="intro">
         <div className="logo">
           <img src={logo} alt="logo" />
@@ -53,7 +63,7 @@ function App() {
         <div className="presents">
           {data.map((l) => (
             <div className="book" key={l.id}>
-              <button type="button" onClick={openWindow}>
+              <button type="button" onClick={(openWindow, handleClick)}>
                 <img src={l.picture} alt={l.name} id={`lutin_${l.id}`} />
                 <div className="cover">
                   <p>{l.id}</p>
