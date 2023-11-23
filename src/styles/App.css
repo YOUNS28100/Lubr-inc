@@ -4,25 +4,20 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -1;
+  cursor: url("src/assets/sucreOrge2.png"), auto;
+  /*overflow: hidden;*/
 }
 
-.line {
-  text-decoration: line-through;
-}
-
-.compteur {
-  color: white;
-}
-
-.list {
+.nav {
+  font-size: 2rem;
   display: flex;
   flex-direction: row;
+  gap: 2rem;
+  padding-left: 1.5rem;
 }
-.presents {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 50px;
+
+.nav a {
+  color: aliceblue;
 }
 
 button {
@@ -49,25 +44,7 @@ button {
 .cover {
   top: 0;
   position: absolute;
-  background-color: lightgray;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
-  transform-origin: 0;
-  box-shadow: 1px 1px 12px #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.book:hover img {
-  opacity: 1;
-}
-
-.book:hover .cover {
-  transition: all 0.7s;
-
-  transform: rotatey(-80deg);
+  animation: slide 4s infinite;
 }
 /* Les pourcentages représentent la temporalité de l'évènement */
 @keyframes slide {

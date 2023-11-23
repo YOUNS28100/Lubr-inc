@@ -1,5 +1,8 @@
 import { useState } from "react";
+//import { toast } from "react-toastify/dist/components";
 import data from "../data.json";
+import "../styles/adventcalender.css";
+import hat from "../assets/hat.png";
 import son1 from "../assets/audio/1.mp3";
 import son2 from "../assets/audio/2.mp3";
 import son3 from "../assets/audio/3.mp3";
@@ -8,7 +11,10 @@ import son5 from "../assets/audio/5.mp3";
 
 export default function AdventCalendar() {
   const [isLined, setIsLined] = useState([]);
-  const [incrementValue, setIncrementValue] = useState(0);
+  // const today = new Date().getDate(); // Fonction prenant la date du jour.
+  const [count, setCount] = useState(1);
+  //const noOpen = () => {};
+  //const [couldOpen, setCouldOpen] = useState(noOpen);
 
   const getRandomSound = () => {
     const randomNumber = Math.floor(Math.random() * 5) + 1;
@@ -30,30 +36,46 @@ export default function AdventCalendar() {
 
   const openWindow = (e) => {
     const value = e.target.id;
+    const numberValue = parseInt(value.slice(6), 10);
     const randomSound = getRandomSound();
-    if (isLined.includes(value)) {
-      setIsLined([...isLined]);
-    } else {
-      setIsLined([...isLined, value]);
-      setIncrementValue(incrementValue + 1);
-      if (randomSound) {
-        randomSound.play();
+    if (count === numberValue) {
+      if (isLined.includes(value)) {
+        setIsLined([...isLined]);
+      } else {
+        setIsLined([...isLined, value]);
+        setCount(count + 1);
+        if (randomSound) {
+          randomSound.play();
+        }
       }
+    } else {
+      // toast.error(`Qui ? Qui ? MAIS QUIIIIII ??`, {
+      //   position: "top-center",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
     }
   };
+
+  console.log(count);
   return (
-    <div className="intro">
-      <div className="compteur">
-        On est le {incrementValue}, il est temps douvrir le bon paquet !
+    <div className="calendar">
+      <div className="count">
+        On est le {count}
+        {count === 1 ? "er" : ""} décembre, il est temps douvrir le bon paquet !
       </div>
-      <div className="list">
-        <ul>
+      <div>
+        <ul className="list">
           {data.map((n) => (
             <li
               className={isLined.includes(`lutin_${n.id}`) ? "line" : ""}
+              id={n.id % 2 === 0 ? "red" : "green"}
               key={n.id}
-              onClick={openWindow}
-            >
+              onClick={openWindow}>
               {n.name}
             </li>
           ))}
@@ -61,12 +83,24 @@ export default function AdventCalendar() {
       </div>
       <div className="presents">
         {data.map((l) => (
-          <div className="book" key={l.id}>
+          <div
+            className={
+              isLined.includes(`lutin_${l.id}`) ? "window-clicked" : "window"
+            }
+            key={l.id}>
             <button type="button" onClick={openWindow}>
-              <img src={l.picture} alt={l.name} id={`lutin_${l.id}`} />
-              <div className="cover">
-                <p>{l.id}</p>
-              </div>
+              {isLined.includes(`lutin_${l.id}`) ? (
+                <img src={l.picture} alt={l.name} id={`lutin_${l.id}`} />
+              ) : (
+                <img src={hat} alt="chapeau lutin" id={`lutin_${l.id}`} />
+              )}
+              {isLined.includes(`lutin_${l.id}`) ? (
+                <></>
+              ) : (
+                <div className="cover">
+                  <p>{l.id}</p>
+                </div>
+              )}
             </button>
           </div>
         ))}
