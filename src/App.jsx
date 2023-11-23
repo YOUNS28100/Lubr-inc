@@ -50,6 +50,19 @@ function App() {
           ))}
         </div>
       </div>
+<<<<<<< HEAD
+      <div className="presents">
+        {data.map((l) => (
+          <div className="book" key={l.id}>
+            <img src={l.picture} alt={`lutin${l.id}`} />
+            <div className="cover">
+              <p>{l.id}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+=======
       <div className="snowflake">❅</div>
       <div className="snowflake">❅</div>
       <div className="snowflake">❆</div>
@@ -81,6 +94,7 @@ function App() {
       <div className="snowflake">❆</div>
       <div className="snowflake">❄</div>
     </div>
+>>>>>>> 3dfcc174b56c55835f219dbac7f9a9e08ee790f5
   );
 }
 

@@ -1,3 +1,108 @@
+<<<<<<< HEAD:src/App.css
+body {
+  background-color: brown;
+}
+
+.presents {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.book {
+  position: relative;
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+  background-color: whitesmoke;
+  -webkit-box-shadow: 1px 1px 12px #000;
+  box-shadow: 1px 1px 12px #000;
+  -webkit-transform: preserve-3d;
+  -ms-transform: preserve-3d;
+  transform: preserve-3d;
+  -webkit-perspective: 2000px;
+  perspective: 2000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  color: #000;
+}
+
+.book img {
+  width: 120px;
+  height: 120px;
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+.book:hover img {
+  opacity: 1;
+}
+
+.cover {
+  top: 0;
+  position: absolute;
+  background-color: lightgray;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform-origin: 0;
+  -ms-transform-origin: 0;
+  transform-origin: 0;
+  -webkit-box-shadow: 1px 1px 12px #000;
+  box-shadow: 1px 1px 12px #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.book:hover .cover {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform: rotatey(-80deg);
+  -ms-transform: rotatey(-80deg);
+  transform: rotatey(-80deg);
+}
+
+/* Les pourcentages représentent la temporalité de l'évènement */
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%); /* IceAyoub part de la gauche */
+  }
+  55% {
+    transform: translateX(50vw); /* IceAyoub s'arrête au milieu de l'écran */
+  }
+  100% {
+    transform: translateX(
+      100vw
+    ); /* IceAyoub reprend sa route vers l'extreme droite */
+  }
+}
+
+.lutin {
+  width: 7em;
+  height: 7em;
+  position: absolute;
+  animation: slide 3s infinite;
+}
+=======
 body {
   background-color: brown;
 }
@@ -47,3 +152,4 @@ body {
   position: absolute;
   animation: slide 3s infinite;
 }
+>>>>>>> 3dfcc174b56c55835f219dbac7f9a9e08ee790f5:src/styles/App.css
