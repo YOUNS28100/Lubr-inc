@@ -11,7 +11,7 @@ function Wakayoub() {
   // OU on décide que si on a trop de ayoub > c'est perdu
   // un bouton pour relancer la machine
   // un meilleur score ! (local storage)
-  //
+  // un ayoub shiny qui rapporte le double de points
 
   const tapetaupe = () => {
     console.info("remplissez moi");
