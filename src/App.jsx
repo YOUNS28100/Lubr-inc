@@ -52,16 +52,14 @@ function App() {
         </div>
         <div className="presents">
           {data.map((l) => (
-            <button
-              type="button"
-              className={`present ${isLined.includes(l.id) ? "lined" : ""}`}
-              onClick={openWindow}
-              id={`lutin_${l.id}`}
-              key={l.id}
-            >
-              <img src={l.picture} alt={l.name} />
-              {l.id}
-            </button>
+            <div className="book" key={l.id}>
+              <button type="button" onClick={openWindow}>
+                <img src={l.picture} alt={l.name} id={`lutin_${l.id}`} />
+                <div className="cover">
+                  <p>{l.id}</p>
+                </div>
+              </button>
+            </div>
           ))}
         </div>
       </div>
