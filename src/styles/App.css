@@ -20,6 +20,7 @@
 button {
   border: none;
 }
+
 .book {
   border-radius: 10px;
   width: 10rem;
@@ -81,12 +82,19 @@ button {
   animation: slide 4s infinite;
 }
 
+/* Je cache sous le tapis le boutton car je n'arrive pas à l'enlever*/
+.buttonMusic {
+  position: absolute;
+  left: -50px;
+}
+
 /* Effet de neige sur le site  */
 body {
+  box-sizing: border-box;
+  position: relative;
   background-image: url("../assets/sapinnoel.png");
   background-size: 100%;
   z-index: -1;
-  overflow: hidden;
 }
 .intro,
 .intro a {

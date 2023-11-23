@@ -62,7 +62,6 @@ function App() {
             ))}
           </ul>
         </div>
-        <Music />
         <div className="presents">
           {data.map((l) => (
             <div className="book" key={l.id}>
@@ -106,12 +105,7 @@ function App() {
       <div className="snowflake">❅</div>
       <div className="snowflake">❆</div>
       <div className="snowflake">❄</div>
-      <img
-        className="lutin"
-        src="./src/assets/Lutins/Ayoublutin.gif"
-        alt="Lutin Ayoub"
-        id="lutin"
-      />
+      <Music />
     </div>
   );
 }
