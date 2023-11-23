@@ -1,7 +1,7 @@
 .line {
   text-decoration: line-through;
 }
-.logo {
+.list {
   display: flex;
   flex-direction: row;
 }
