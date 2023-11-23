@@ -6,7 +6,7 @@
   color: white;
 }
 
-.logo {
+.list {
   display: flex;
   flex-direction: row;
 }
