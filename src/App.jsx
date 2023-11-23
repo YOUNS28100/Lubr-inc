@@ -1,5 +1,5 @@
 import Music from "./components/Music";
-import "./App.css";
+import "./styles/App.css";
 import logo from "./assets/logo.png";
 import data from "./data.json";
 

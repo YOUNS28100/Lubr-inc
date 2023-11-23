@@ -1,5 +1,5 @@
 import useSound from "use-sound";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import music from "../assets/musique.mp3";
 import speaker from "../assets/speaker.png";
 import speakerMute from "../assets/speakermute.png";
@@ -9,7 +9,7 @@ import "../styles/Music.css";
 const sounds = [music];
 
 function Music() {
-  const [isPlaying, setIsPLaying] = useState(false);
+  const [isPlaying, setIsPLaying] = useState(true);
   const [random, setRandom] = useState(0);
   const [speakerOn, setSpeakerOn] = useState(false);
   const [play, { stop }] = useSound(sounds[random], { volume: 0.3 });
@@ -20,18 +20,21 @@ function Music() {
     setRandom(random);
   };
 
-  //Fonction play &
   const playMusic = () => {
     setIsPLaying(!isPlaying);
     if (isPlaying === false) {
       generateRandom();
       play();
-      setSpeakerOn(!speakerOn);
+      speakerOn ? setSpeakerOn(false) : "";
     } else {
       stop();
-      setSpeakerOn(!speakerOn);
+      !speakerOn ? setSpeakerOn(true) : "";
     }
   };
+
+  useEffect(() => {
+    play();
+  }, [play]);
 
   return (
     <div className="container">
