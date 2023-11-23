@@ -1,10 +1,44 @@
+import { useState } from "react";
+import ayoubdore from "../assets/ayoubdore.png";
+import ayoubnormal from "../assets/ayoubnormal.png";
+
 function Wakayoub() {
   // pour le tape taupe
-  // on veut créer un compteur de score qui
-  // mets -1 si on click sur une div "vide"
-  // mets +1 si on click sur un elfe lubrique/ ayoub
-  // on mets en place un timer de Xsecondes si possible
+  const [score, setScore] = useState(0);
+  const [isElfed, setIsElfed] = useState(true);
+  const [isayoubgolden, setIsAyoubGolden] = useState(ayoubdore);
+  // pour mettre le score a jour, on sait cibler l'id il faut regarder ensuite si l'image d'ayoub est présente
+  const tapetaupe = (event) => {
+    console.log(event.target.id);
+    event.target.id ? setScore(score + 1) : setScore(score - 1);
+  };
+  // fonction aléatoire entre 1 et max
+  const randomnumberget = (max) => {
+    1 + Math.floor(Math.random() * max);
+  };
+  // let pour mettre de l'aléatoire dans le timer
+  let timesetout = "";
+
+  // on mets en place un timer de Xsecondes
   // on lance une boucle selon le timer ou un nombre de points à atteindre / ne pas atteindre (comme -43)
+  const elfspawn = () => {
+    while (score < 30 || score >= -15) {
+      // le timer aléatoire
+      timesetout = randomnumberget(5);
+      const timer = setTimeout(() => {}, timesetout);
+      //
+
+      //je dois faire apparaitre un ayoub taupe dans une des divs mais au hasard
+
+      // je dois réussir à différencier chaque div
+      // ensuite lancer un nombre aléatoire
+      // verifier si j'ai un ayoub sur cette div
+      // si c'est le cas je relance le numéro aléatoire
+      // si c'est bon je mets mon ayoub et je repars de l'étape du timer (boucle donc)
+
+      console.log("non");
+    }
+  };
   // Chaque Xsecondes on a 1 DIV dont l'image change pour un ayoub/lutin lubrique
   // si je clique dessus elle redevient "vide" et je gagne +1 donc
   // on ne peut pas depasser les X ayoub à l'écran
@@ -12,15 +46,13 @@ function Wakayoub() {
   // un bouton pour relancer la machine
   // un meilleur score ! (local storage)
   // un ayoub shiny qui rapporte le double de points
+  // a chaque fois qu'un ayoub apparait il lance une alerte avec un message rigolo comme "termine ton CSS"
 
-  const tapetaupe = () => {
-    console.info("remplissez moi");
-  };
   return (
     <>
-      <div onClick={tapetaupe()}>
-        <img src="" alt="" />
-      </div>
+      <button type="button" onClick={tapetaupe()}>
+        <img src={isElfed ? "ayoubnormal" : ""} alt="" id="mole1" />
+      </button>
     </>
   );
 }
