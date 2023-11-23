@@ -11,7 +11,7 @@ function App() {
   const today = new Date().getDate(); // Fonction prenant la date du jour.
 
   const openWindow = (e) => {
-    const value = parseInt(e.target.id.split("_")[1], 10);
+    const value = parseInt(e.currentTarget.id.split('_')[1], 10);
 
     if (value === today) {
       if (!isLined.includes(value)) {
