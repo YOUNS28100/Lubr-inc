@@ -1,102 +1,127 @@
 [
   {
     "id": 1,
+    "name": "Lutin soyeux",
     "picture": "src/assets/Lutins/1.jpg"
   },
   {
     "id": 2,
+    "name": "Lutin cartonné",
     "picture": "src/assets/Lutins/2.jpg"
   },
   {
     "id": 3,
+    "name": "Lutin T-pose",
     "picture": "src/assets/Lutins/3.jpg"
   },
   {
     "id": 4,
+    "name": "Lutin biscoto",
     "picture": "src/assets/Lutins/4.jpg"
   },
   {
     "id": 5,
+    "name": "Lutin bascule",
     "picture": "src/assets/Lutins/5.jpg"
   },
   {
     "id": 6,
+    "name": "Lutin précieux à mitaine",
     "picture": "src/assets/Lutins/6.jpg"
   },
   {
     "id": 7,
+    "name": "Lutinho",
     "picture": "src/assets/Lutins/7.jpg"
   },
   {
     "id": 8,
+    "name": "Gnomes voleurs de slips",
     "picture": "src/assets/Lutins/8.jpg"
   },
   {
     "id": 9,
+    "name": "Super Lutin Bross",
     "picture": "src/assets/Lutins/9.jpg"
   },
   {
     "id": 10,
+    "name": "Lutin fanfare",
     "picture": "src/assets/Lutins/10.jpg"
   },
   {
     "id": 11,
+    "name": "Lutin oeuf",
     "picture": "src/assets/Lutins/11.jpg"
   },
   {
     "id": 12,
+    "name": "NosféLutin",
     "picture": "src/assets/Lutins/12.jpg"
   },
   {
     "id": 13,
+    "name": "Lutin moustachu",
     "picture": "src/assets/Lutins/13.jpg"
   },
   {
     "id": 14,
+    "name": "Lutin de l'angoisse",
     "picture": "src/assets/Lutins/14.jpg"
   },
   {
     "id": 15,
+    "name": "Lutin après 3 mois de Wild",
     "picture": "src/assets/Lutins/15.jpg"
   },
   {
     "id": 16,
+    "name": "Monsieur Hankei",
     "picture": "src/assets/Lutins/16.jpg"
   },
   {
     "id": 17,
+    "name": "Lutin pingre",
     "picture": "src/assets/Lutins/17.jpg"
   },
   {
     "id": 18,
+    "name": "Lutinette",
     "picture": "src/assets/Lutins/18.jpg"
   },
   {
     "id": 19,
+    "name": "Lutino",
     "picture": "src/assets/Lutins/19.jpg"
   },
   {
     "id": 20,
+    "name": "Lutin baptiste",
     "picture": "src/assets/Lutins/20.jpg"
   },
   {
     "id": 21,
+    "name": "Lutin des cités",
     "picture": "src/assets/Lutins/21.jpg"
   },
   {
     "id": 22,
+    "name": "Lutin horrorflow",
     "picture": "src/assets/Lutins/22.jpg"
   },
   {
     "id": 23,
+    "name": "Lutin à moteur",
     "picture": "src/assets/Lutins/23.jpg"
   },
   {
     "id": 24,
+    "name": "Nicholas Elf",
     "picture": "src/assets/Lutins/24.jpg"
   },
   {
     "id": 25,
+    "name": "Lutin Ayoub",
     "picture": "src/assets/Lutins/25.jpg"
   }
 ]
