@@ -1,3 +1,11 @@
+body {
+  position: relative;
+  background-image: url("../assets/sapinnoel.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
 .line {
   text-decoration: line-through;
 }
@@ -71,31 +79,24 @@ button {
   }
   100% {
     transform: translateX(
-      100vw
+      120vw
     ); /* IceAyoub reprend sa route vers l'extreme droite */
   }
 }
 .lutin {
   width: 7em;
   height: 7em;
-  position: absolute;
   animation: slide 4s infinite;
 }
 
 /* Je cache sous le tapis le boutton car je n'arrive pas à l'enlever*/
 .buttonMusic {
   position: absolute;
-  left: -50px;
+  left: -200px;
 }
 
 /* Effet de neige sur le site  */
-body {
-  box-sizing: border-box;
-  position: relative;
-  background-image: url("../assets/sapinnoel.png");
-  background-size: 100%;
-  z-index: -1;
-}
+
 .intro,
 .intro a {
   color: #fff;
