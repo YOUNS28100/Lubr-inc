@@ -1,5 +1,6 @@
+import Music from "./components/Music";
 import { useState } from "react";
-import "./App.css";
+import "./styles/App.css";
 import logo from "./assets/logo.png";
 import data from "./data.json";
 
@@ -27,11 +28,13 @@ function App() {
               <li
                 className={isLined.includes(`lutin_${n.id}`) ? "line" : ""}
                 id={`lutin_${n.id}`}
-                key={n.id}>
+                key={n.id}
+              >
                 {n.name}
               </li>
             ))}
           </ul>
+          <Music />
         </div>
         <div className="presents">
           {data.map((l) => (
@@ -39,7 +42,8 @@ function App() {
               type="button"
               className="present"
               onClick={openWindow}
-              key={l.id}>
+              key={l.id}
+            >
               <img src={l.picture} alt={l.name} id={`lutin_${l.id}`} />
               {l.id}
             </button>
