@@ -1,9 +1,7 @@
 body {
-  position: relative;
   background-image: url("../assets/sapinnoel.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
   height: 100vh;
   width: 100vw;
   z-index: -1;
@@ -67,6 +65,7 @@ button {
   }
 }
 .lutin {
+  position: absolute;
   width: 7em;
   height: 7em;
   animation: slide 4s infinite;
