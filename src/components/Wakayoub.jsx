@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ayoubnormal from "../assets/ayoubnormal.png";
-import "../styles/Wakayoub.css";
+import "../styles/wakawaka.css";
 
 function Wakayoub() {
   // pour le tape taupe
