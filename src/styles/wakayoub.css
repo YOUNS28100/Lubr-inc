@@ -1,3 +1,11 @@
-.game {
-  cursor: url("src/assets/marteau2.png"), auto;
+.visible {
+  opacity: 1;
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.game img {
+  width: 5rem;
 }

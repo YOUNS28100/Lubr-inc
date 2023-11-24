@@ -1,3 +1,10 @@
+.calendar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .calendar a {
   color: #fff;
 }
@@ -8,16 +15,24 @@
 
 .count {
   color: white;
+  margin-left: 5rem;
+  width: 25rem;
   font-size: 2rem;
   text-align: center;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 15px;
+  animation: coloration 1s linear infinite;
 }
 
 .list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   list-style: none;
+  margin-top: 10rem;
+  width: 35vh;
   background-color: rgba(239, 211, 211, 0.6);
   padding: 10px;
   border-radius: 15px;
@@ -34,16 +49,24 @@
 }
 
 .presents {
+  margin-top: 12rem;
+  padding-left: 6rem;
+  width: 40vh;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 50px;
 }
 
+.presents button {
+  border-radius: 20px;
+  width: 4.8rem;
+  height: 4.8rem;
+}
 .window {
-  border-radius: 10px;
-  width: 10rem;
-  height: 10rem;
+  border-radius: 20px;
+  width: 4.5rem;
+  height: 4.5rem;
   background-color: whitesmoke;
   box-shadow: 1px 1px 12px #000;
   perspective: 2000px;
@@ -52,54 +75,66 @@
 }
 
 .window img {
-  width: 120px;
-  height: 120px;
-  margin-left: 1.6rem;
-  opacity: 0;
-  transition: opacity 1.5s;
+  border-radius: 20px;
+  width: 4.5rem;
+  height: 4.5rem;
 }
 
 .window-clicked {
-  border-radius: 10px;
-  width: 10rem;
-  height: 10rem;
+  border-radius: 20px;
+  width: 4.5rem;
+  height: 4.5rem;
   background-color: whitesmoke;
   box-shadow: 1px 1px 12px #000;
   perspective: 2000px;
   display: flex;
   align-items: center;
 }
+
 .window-clicked img {
-  width: 120px;
-  height: 120px;
-  margin-left: 1.6rem;
-  opacity: 1;
+  border-radius: 20px;
+  width: 4.5rem;
+  height: 4.5rem;
 }
 
 .cover {
   top: 0;
   position: absolute;
   background-color: yellow;
-  width: 100%;
-  height: 100%;
+  width: 5rem;
+  height: 5rem;
   border-radius: 10px;
   transform-origin: 0;
   box-shadow: 1px 1px 12px #000;
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: green;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.window:hover img {
-  opacity: 1;
-}
-
 .window:hover .cover {
   transition: all 0.6s;
 
   transform: rotatey(-80deg);
+}
+
+@keyframes coloration {
+  0% {
+    background-color: red;
+  }
+  40% {
+    background-color: red;
+  }
+  50% {
+    background-color: green;
+  }
+  90% {
+    background-color: green;
+  }
+  100% {
+    background-color: red;
+  }
 }
 
 .custom-alert {
