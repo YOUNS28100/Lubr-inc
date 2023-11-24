@@ -1,8 +1,6 @@
 import { useState } from "react";
-//import { toast } from "react-toastify/dist/components";
 import data from "../data.json";
 import "../styles/adventcalender.css";
-import hat from "../assets/hat.png";
 import son1 from "../assets/audio/1.mp3";
 import son2 from "../assets/audio/2.mp3";
 import son3 from "../assets/audio/3.mp3";
@@ -11,10 +9,9 @@ import son5 from "../assets/audio/5.mp3";
 
 export default function AdventCalendar() {
   const [isLined, setIsLined] = useState([]);
-  // const today = new Date().getDate(); // Fonction prenant la date du jour.
+  //const today = new Date().getDate(); // Utilise la date actuelle
+  //const [showAlert, setShowAlert] = useState(false);
   const [count, setCount] = useState(1);
-  //const noOpen = () => {};
-  //const [couldOpen, setCouldOpen] = useState(noOpen);
 
   const getRandomSound = () => {
     const randomNumber = Math.floor(Math.random() * 5) + 1;
@@ -34,15 +31,39 @@ export default function AdventCalendar() {
     }
   };
 
+  // const openWindow = (e) => {
+  //   // Supposons que l'ID de chaque case est de la forme "lutin_X"
+  //   const id = e.currentTarget.id;
+  //   const numberValue = parseInt(id.replace("lutin_", ""), 10); // Extrait le nombre de l'ID pour coller les numéros de case au jour du mois.
+
+  //   if (count === numberValue) {
+  //     if (isLined.includes(id)) {
+  //       setIsLined([...isLined]);
+  //     }
+  //   } else {
+  //     setIsLined([...isLined, id]);
+  //     setCount(count + 1);
+  //     const randomSound = getRandomSound();
+  //     if (randomSound) {
+  //       randomSound.play();
+  //       // } else {
+  //       //   setShowAlert(true);
+  //       //   setTimeout(() => {
+  //       //     setShowAlert(false);
+  //       //   }, 2000);
+  //       // }
+  //     }
+  //   }
+  // };
   const openWindow = (e) => {
-    const value = e.target.id;
-    const numberValue = parseInt(value.slice(6), 10);
+    const id = e.target.id;
+    const numberid = parseInt(id.slice(6), 10);
     const randomSound = getRandomSound();
-    if (count === numberValue) {
-      if (isLined.includes(value)) {
+    if (count === numberid) {
+      if (isLined.includes(id)) {
         setIsLined([...isLined]);
       } else {
-        setIsLined([...isLined, value]);
+        setIsLined([...isLined, id]);
         setCount(count + 1);
         if (randomSound) {
           randomSound.play();
@@ -60,26 +81,11 @@ export default function AdventCalendar() {
       // });
     }
   };
-
-  console.log(count);
   return (
     <div className="calendar">
       <div className="count">
         On est le {count}
         {count === 1 ? "er" : ""} décembre, il est temps douvrir le bon paquet !
-      </div>
-      <div>
-        <ul className="list">
-          {data.map((n) => (
-            <li
-              className={isLined.includes(`lutin_${n.id}`) ? "line" : ""}
-              id={n.id % 2 === 0 ? "red" : "green"}
-              key={n.id}
-              onClick={openWindow}>
-              {n.name}
-            </li>
-          ))}
-        </ul>
       </div>
       <div className="presents">
         {data.map((l) => (
@@ -90,20 +96,37 @@ export default function AdventCalendar() {
             key={l.id}>
             <button type="button" onClick={openWindow}>
               {isLined.includes(`lutin_${l.id}`) ? (
-                <img src={l.picture} alt={l.name} id={`lutin_${l.id}`} />
-              ) : (
-                <img src={hat} alt="chapeau lutin" id={`lutin_${l.id}`} />
-              )}
-              {isLined.includes(`lutin_${l.id}`) ? (
                 <></>
               ) : (
                 <div className="cover">
                   <p>{l.id}</p>
                 </div>
               )}
+              {isLined.includes(`lutin_${l.id}`) ? (
+                <img src={l.picture} alt={l.name} id={`lutin_${l.id}`} />
+              ) : (
+                <img src={l.gift} alt="cadeau" id={`lutin_${l.id}`} />
+              )}
             </button>
           </div>
         ))}
+      </div>
+      {/* {showAlert && (
+        <div className="custom-alert">
+          Oups ! Vous ne pouvez ouvrir que la case du jour actuel !
+        </div>
+      )} */}
+      <div>
+        <ul className="list">
+          {data.map((n) => (
+            <li
+              className={isLined.includes(`lutin_${n.id}`) ? "line" : ""}
+              id={n.id % 2 === 0 ? "red" : "green"}
+              key={n.id}>
+              {n.name}
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
