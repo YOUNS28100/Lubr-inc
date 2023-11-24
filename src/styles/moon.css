@@ -1,0 +1,42 @@
+.moon button {
+  opacity: 0.2;
+  position: absolute;
+  top: 230px;
+  right: 650px;
+  background: transparent;
+  cursor: help;
+}
+
+.moon img {
+  opacity: 0;
+  width: 95px;
+  height: 130px;
+}
+
+.visible button {
+  opacity: 1;
+  position: absolute;
+  top: 230px;
+  right: 650px;
+  background: transparent;
+}
+
+.visible img {
+  opacity: 1;
+  width: 95px;
+  height: 130px;
+  animation: spin 3000ms ease-out;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+    scale: 0;
+    opacity: 0;
+  }
+  to {
+    transform: rotate(3600deg);
+    scale: 1;
+    opacity: 1;
+  }
+}

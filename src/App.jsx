@@ -1,55 +1,25 @@
 import Music from "./components/Music";
-import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import { NavLink, Outlet } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.css";
 import "./styles/App.css";
+import "./styles/snowflake.css";
+import Moon from "./components/Moon";
 import logo from "./assets/logo.png";
-import data from "./data.json";
 
 function App() {
-  const [isLined, setIsLined] = useState([]);
-  const openWindow = (e) => {
-    const value = e.target.id;
-    console.log(typeof value);
-    if (isLined.includes(value)) {
-      setIsLined([...isLined]);
-    } else {
-      setIsLined([...isLined, value]);
-    }
-  };
-  console.log(isLined);
-
   return (
     <div className="snowflakes" aria-hidden="true">
-      <div className="intro">
-        {" "}
-        <div className="logo">
-          <img src={logo} alt="logo" />
-          <ul>
-            {data.map((n) => (
-              <li
-                className={isLined.includes(`lutin_${n.id}`) ? "line" : ""}
-                id={`lutin_${n.id}`}
-                key={n.id}
-              >
-                {n.name}
-              </li>
-            ))}
-          </ul>
-          <Music />
-        </div>
-        <div className="presents">
-          {data.map((l) => (
-            <button
-              type="button"
-              className="present"
-              onClick={openWindow}
-              key={l.id}
-            >
-              <img src={l.picture} alt={l.name} id={`lutin_${l.id}`} />
-              {l.id}
-            </button>
-          ))}
-        </div>
+      <NavLink to="/">
+        <img src={logo} alt="logo" className="logo" />
+      </NavLink>
+      <div className="nav">
+        <NavLink to="/adventcalendar">Le calendrier</NavLink>
+        <NavLink to="/game">Le jeu</NavLink>
       </div>
+      <ToastContainer />
+      <Moon />
+      <Outlet />
       <div className="snowflake">❅</div>
       <div className="snowflake">❅</div>
       <div className="snowflake">❆</div>
@@ -80,6 +50,7 @@ function App() {
       <div className="snowflake">❅</div>
       <div className="snowflake">❆</div>
       <div className="snowflake">❄</div>
+      <Music />
     </div>
   );
 }

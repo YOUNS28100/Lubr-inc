@@ -1,0 +1,157 @@
+.calendar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.calendar button {
+  cursor: url("src/assets/sucreOrge2.png"), auto;
+}
+
+.calendar a {
+  color: #fff;
+}
+
+.line {
+  text-decoration: line-through;
+}
+
+.count {
+  color: white;
+  margin-left: 5rem;
+  width: 30rem;
+  font-size: 2.5rem;
+  text-align: center;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  border-radius: 15px;
+  animation: coloration 1s linear infinite;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+  margin-top: 10rem;
+  width: 35vh;
+  background-color: rgba(239, 211, 211, 0.6);
+  padding: 10px;
+  border-radius: 15px;
+}
+
+#red {
+  color: red;
+  font-size: 2rem;
+}
+
+#green {
+  color: green;
+  font-size: 2rem;
+}
+
+.presents {
+  margin-top: 17rem;
+  width: 35vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+.presents button {
+  position: relative;
+  border-radius: 20px;
+  width: 4.8rem;
+  height: 4.8rem;
+}
+.window {
+  border-radius: 20px;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: whitesmoke;
+  box-shadow: 1px 1px 12px #000;
+  perspective: 2000px;
+  display: flex;
+  align-items: center;
+}
+
+.window img {
+  border-radius: 20px;
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.window-clicked {
+  border-radius: 20px;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: whitesmoke;
+  box-shadow: 1px 1px 12px #000;
+  perspective: 2000px;
+  display: flex;
+  align-items: center;
+}
+
+.window-clicked img {
+  border-radius: 20px;
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.cover {
+  top: 0;
+  position: absolute;
+  background-color: yellow;
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 20px;
+  transform-origin: 0;
+  box-shadow: 1px 1px 12px #000;
+  font-size: 3.5rem;
+  color: green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.window:hover .cover {
+  transition: all 0.6s;
+
+  transform: rotatey(-80deg);
+}
+
+@keyframes coloration {
+  0% {
+    background-color: red;
+  }
+  40% {
+    background-color: red;
+  }
+  50% {
+    background-color: green;
+  }
+  90% {
+    background-color: green;
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+.custom-alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  padding: 20px;
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}

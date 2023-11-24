@@ -1,9 +1,8 @@
 import useSound from "use-sound";
 import { useEffect, useState } from "react";
 import music from "../assets/musique.mp3";
-import speaker from "../assets/speaker.png";
-import speakerMute from "../assets/speakermute.png";
-import "../styles/Music.css";
+import ayoub from "../assets/Lutins/ayoubfamily.png";
+import "../styles/App.css";
 
 // datas des son/musiques
 const sounds = [music];
@@ -37,15 +36,15 @@ function Music() {
   }, [play]);
 
   return (
-    <div className="container">
+    <div>
       <button
-        id="button"
+        className="buttonMusic"
         type="button"
         onClick={() => {
           playMusic();
         }}
       >
-        <img src={speakerOn ? speaker : speakerMute} alt="logo speaker" />
+        <img className="lutin" src={ayoub} alt="ayoub" />
       </button>
     </div>
   );
