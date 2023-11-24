@@ -15,7 +15,7 @@ const init_state = {
   rotating: "",
 };
 export default function Teapot() {
-  const [play] = useSound(sound, { volume: 0.3 });
+  const [play] = useSound(sound, { volume: 0.2 });
   const [state, setState] = useReducer(
     (state, new_state) => ({
       ...state,

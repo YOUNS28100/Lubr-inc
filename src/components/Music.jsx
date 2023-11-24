@@ -1,7 +1,7 @@
 import useSound from "use-sound";
 import { useEffect, useState } from "react";
 import music from "../assets/musique.mp3";
-import ayoub from "../assets/Lutins/ayoubfamily.png";
+import ayoub from "../assets/Lutins/ayoubfamily.gif";
 import "../styles/App.css";
 
 // datas des son/musiques
@@ -11,7 +11,7 @@ function Music() {
   const [isPlaying, setIsPLaying] = useState(true);
   const [random, setRandom] = useState(0);
   const [speakerOn, setSpeakerOn] = useState(false);
-  const [play, { stop }] = useSound(sounds[random], { volume: 0.3 });
+  const [play, { stop }] = useSound(sounds[random], { volume: 0.1 });
 
   //Fonction Randomisation du son/musique lancé
   const generateRandom = () => {
