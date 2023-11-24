@@ -30,10 +30,9 @@ button {
 
 .lutin {
   position: absolute;
-  bottom: 50px;
-  width: 7em;
-  height: 7em;
-  animation: slide 4s infinite;
+  bottom: 0;
+  height: 20rem;
+  animation: slide 5s infinite;
 }
 
 /* Les pourcentages représentent la temporalité de l'évènement */
@@ -42,7 +41,7 @@ button {
     transform: translateX(-100%); /* IceAyoub part de la gauche */
   }
   55% {
-    transform: translateX(70vw); /* IceAyoub s'arrête au milieu de l'écran */
+    transform: translateX(45vw); /* IceAyoub s'arrête au milieu de l'écran */
   }
   100% {
     transform: translateX(
