@@ -30,6 +30,7 @@ button {
 
 .lutin {
   position: absolute;
+  bottom: 50px;
   width: 7em;
   height: 7em;
   animation: slide 4s infinite;

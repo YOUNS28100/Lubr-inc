@@ -10,7 +10,9 @@ import logo from "./assets/logo.png";
 function App() {
   return (
     <div className="snowflakes" aria-hidden="true">
-      <img src={logo} alt="logo" className="logo" />
+      <NavLink to="/">
+        <img src={logo} alt="logo" className="logo" />
+      </NavLink>
       <div className="nav">
         <NavLink to="/adventcalendar">Le calendrier</NavLink>
         <NavLink to="/game">Le jeu</NavLink>

@@ -6,7 +6,7 @@ import useSound from "use-sound";
 
 function Moon() {
   const [scope, setScope] = useState(true);
-  const [play, { stop }] = useSound(lala, { volume: 0.1 });
+  const [play] = useSound(lala, { volume: 0.1 });
 
   const handleClick = () => {
     setScope(!scope);
