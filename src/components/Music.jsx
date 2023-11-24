@@ -1,7 +1,7 @@
 import useSound from "use-sound";
 import { useEffect, useState } from "react";
 import music from "../assets/musique.mp3";
-import ayoub from "../assets/Lutins/Ayoublutin.gif";
+import ayoub from "../assets/Lutins/ayoubfamily.png";
 import "../styles/App.css";
 
 // datas des son/musiques
