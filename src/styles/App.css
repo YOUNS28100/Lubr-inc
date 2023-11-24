@@ -29,18 +29,11 @@ button {
 }
 
 .lutin {
-  position: relative;
+  position: absolute;
   bottom: 50px;
   width: 7em;
   height: 7em;
   animation: slide 4s infinite;
-}
-
-.buttonMusic {
-  background: none;
-  position: absolute;
-  top: 230px;
-  right: 650px;
 }
 
 /* Les pourcentages représentent la temporalité de l'évènement */
