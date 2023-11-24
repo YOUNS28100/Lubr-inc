@@ -3,9 +3,12 @@ body {
   background-image: url("../assets/sapinnoel.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+  width: 100vw;
   z-index: -1;
   cursor: url("src/assets/sucreOrge2.png"), auto;
-  /*overflow: hidden;*/
+  /* overflow: hidden; */
 }
 
 .nav {
@@ -52,11 +55,11 @@ button {
     transform: translateX(-100%); /* IceAyoub part de la gauche */
   }
   55% {
-    transform: translateX(50vw); /* IceAyoub s'arrête au milieu de l'écran */
+    transform: translateX(70vw); /* IceAyoub s'arrête au milieu de l'écran */
   }
   100% {
     transform: translateX(
-      120vw
+      130vw
     ); /* IceAyoub reprend sa route vers l'extreme droite */
   }
 }
@@ -69,7 +72,7 @@ button {
 /* Je cache sous le tapis le boutton car je n'arrive pas à l'enlever*/
 .buttonMusic {
   position: absolute;
-  left: -200px;
+  left: -150px;
 }
 
 /* Effet de neige sur le site  */
