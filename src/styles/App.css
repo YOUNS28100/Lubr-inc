@@ -1,9 +1,12 @@
 body {
   background-image: url("../assets/sapinnoel.png");
-  background-size: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
   z-index: -1;
   cursor: url("src/assets/sucreOrge2.png"), auto;
-  /*overflow: hidden;*/
+  /* overflow: hidden; */
 }
 
 .logo {
@@ -25,9 +28,25 @@ button {
   border: none;
 }
 
-.lutin {
-  width: 7em;
-  height: 7em;
+.book {
+  border-radius: 10px;
+  width: 10rem;
+  height: 10rem;
+  background-color: whitesmoke;
+  box-shadow: 1px 1px 12px #000;
+  perspective: 2000px;
+  display: flex;
+  align-items: center;
+}
+.book img {
+  width: 120px;
+  height: 120px;
+  margin-left: 1.6rem;
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+.cover {
+  top: 0;
   position: absolute;
   animation: slide 4s infinite;
 }
@@ -37,11 +56,250 @@ button {
     transform: translateX(-100%); /* IceAyoub part de la gauche */
   }
   55% {
-    transform: translateX(50vw); /* IceAyoub s'arrête au milieu de l'écran */
+    transform: translateX(70vw); /* IceAyoub s'arrête au milieu de l'écran */
   }
   100% {
     transform: translateX(
-      100vw
+      130vw
     ); /* IceAyoub reprend sa route vers l'extreme droite */
   }
 }
+.lutin {
+  position: absolute;
+  width: 7em;
+  height: 7em;
+  animation: slide 4s infinite;
+}
+
+/* Je cache sous le tapis le boutton car je n'arrive pas à l'enlever*/
+.buttonMusic {
+  position: absolute;
+  left: -150px;
+}
+
+/* Effet de neige sur le site  */
+
+.intro,
+.intro a {
+  color: #fff;
+}
+/* customizable snowflake styling */
+.snowflake {
+  color: #fff;
+  font-size: 1em;
+  font-family: Arial;
+  text-shadow: 0 0 1px #000;
+}
+
+@-webkit-keyframes snowflakes-fall {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@-webkit-keyframes snowflakes-shake {
+  0% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+  50% {
+    -webkit-transform: translateX(80px);
+    transform: translateX(80px);
+  }
+  100% {
+    -webkit-transform: translateX(0px);
+    transform: translateX(0px);
+  }
+}
+@keyframes snowflakes-fall {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+@keyframes snowflakes-shake {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(80px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+.snowflake {
+  position: fixed;
+  top: -10%;
+  z-index: 9999;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+  -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+  -webkit-animation-duration: 10s, 3s;
+  -webkit-animation-timing-function: linear, ease-in-out;
+  -webkit-animation-iteration-count: infinite, infinite;
+  -webkit-animation-play-state: running, running;
+  animation-name: snowflakes-fall, snowflakes-shake;
+  animation-duration: 10s, 3s;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-play-state: running, running;
+}
+.snowflake:nth-of-type(0) {
+  left: 1%;
+  -webkit-animation-delay: 0s, 0s;
+  animation-delay: 0s, 0s;
+}
+.snowflake:nth-of-type(1) {
+  left: 10%;
+  -webkit-animation-delay: 1s, 1s;
+  animation-delay: 1s, 1s;
+}
+.snowflake:nth-of-type(2) {
+  left: 20%;
+  -webkit-animation-delay: 6s, 0.5s;
+  animation-delay: 6s, 0.5s;
+}
+.snowflake:nth-of-type(3) {
+  left: 30%;
+  -webkit-animation-delay: 4s, 2s;
+  animation-delay: 4s, 2s;
+}
+.snowflake:nth-of-type(4) {
+  left: 40%;
+  -webkit-animation-delay: 2s, 2s;
+  animation-delay: 2s, 2s;
+}
+.snowflake:nth-of-type(5) {
+  left: 50%;
+  -webkit-animation-delay: 8s, 3s;
+  animation-delay: 8s, 3s;
+}
+.snowflake:nth-of-type(6) {
+  left: 60%;
+  -webkit-animation-delay: 6s, 2s;
+  animation-delay: 6s, 2s;
+}
+.snowflake:nth-of-type(7) {
+  left: 70%;
+  -webkit-animation-delay: 2.5s, 1s;
+  animation-delay: 2.5s, 1s;
+}
+.snowflake:nth-of-type(8) {
+  left: 80%;
+  -webkit-animation-delay: 1s, 0s;
+  animation-delay: 1s, 0s;
+}
+.snowflake:nth-of-type(9) {
+  left: 90%;
+  -webkit-animation-delay: 3s, 1.5s;
+  animation-delay: 3s, 1.5s;
+}
+.snowflake:nth-of-type(10) {
+  left: 1%;
+  -webkit-animation-delay: 4s, 0.5s;
+  animation-delay: 4s, 0.5s;
+}
+.snowflake:nth-of-type(11) {
+  left: 10%;
+  -webkit-animation-delay: 2s, 1.5s;
+  animation-delay: 2s, 1.5s;
+}
+.snowflake:nth-of-type(12) {
+  left: 20%;
+  -webkit-animation-delay: 7s, 2s;
+  animation-delay: 7s, 2s;
+}
+.snowflake:nth-of-type(13) {
+  left: 30%;
+  -webkit-animation-delay: 5s, 3s;
+  animation-delay: 5s, 3s;
+}
+.snowflake:nth-of-type(14) {
+  left: 40%;
+  -webkit-animation-delay: 1s, 3s;
+  animation-delay: 1s, 3s;
+}
+.snowflake:nth-of-type(15) {
+  left: 50%;
+  -webkit-animation-delay: 9s, 4s;
+  animation-delay: 9s, 4s;
+}
+.snowflake:nth-of-type(16) {
+  left: 60%;
+  -webkit-animation-delay: 6s, 4s;
+  animation-delay: 6s, 4s;
+}
+.snowflake:nth-of-type(17) {
+  left: 70%;
+  -webkit-animation-delay: 2.5s, 1.5s;
+  animation-delay: 2.5s, 1.5s;
+}
+.snowflake:nth-of-type(18) {
+  left: 80%;
+  -webkit-animation-delay: 0.5s, 0.5s;
+  animation-delay: 0.5s, 0.5s;
+}
+.snowflake:nth-of-type(19) {
+  left: 90%;
+  -webkit-animation-delay: 2s, 1.5s;
+  animation-delay: 2s, 1.5s;
+}
+.snowflake:nth-of-type(20) {
+  left: 1%;
+  -webkit-animation-delay: 9s, 2.5s;
+  animation-delay: 9s, 2.5s;
+}
+.snowflake:nth-of-type(21) {
+  left: 10%;
+  -webkit-animation-delay: 5s, 3.5s;
+  animation-delay: 5s, 3.5s;
+}
+.snowflake:nth-of-type(22) {
+  left: 20%;
+  -webkit-animation-delay: 7s, 5.5s;
+  animation-delay: 7s, 5.5s;
+}
+.snowflake:nth-of-type(23) {
+  left: 30%;
+  -webkit-animation-delay: 8s, 4s;
+  animation-delay: 8s, 4s;
+}
+.snowflake:nth-of-type(24) {
+  left: 40%;
+  -webkit-animation-delay: 1.5s, 3.5s;
+  animation-delay: 1.5s, 3.5s;
+}
+.snowflake:nth-of-type(25) {
+  left: 50%;
+  -webkit-animation-delay: 9.5s, 2.5s;
+  animation-delay: 9.5s, 2.5s;
+}
+.snowflake:nth-of-type(26) {
+  left: 60%;
+  -webkit-animation-delay: 7.5s, 3.5s;
+  animation-delay: 7.5s, 3.5s;
+}
+.snowflake:nth-of-type(27) {
+  left: 70%;
+  -webkit-animation-delay: 4.5s, 2.5s;
+  animation-delay: 4.5s, 2.5s;
+}
+.snowflake:nth-of-type(28) {
+  left: 80%;
+  -webkit-animation-delay: 1.5s, 1.5s;
+  animation-delay: 1.5s, 1.5s;
+}
+.snowflake:nth-of-type(29) {
+  left: 90%;
+  -webkit-animation-delay: 2.5s, 3s;
+  animation-delay: 2.5s, 3s;
+}
+/* Effet de neige sur le site  */
