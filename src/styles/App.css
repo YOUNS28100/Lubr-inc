@@ -6,6 +6,9 @@ body {
   /*overflow: hidden;*/
 }
 
+.logo {
+  width: 270px;
+}
 .nav {
   font-size: 2rem;
   display: flex;

@@ -2,7 +2,6 @@ import { useState } from "react";
 //import { toast } from "react-toastify/dist/components";
 import data from "../data.json";
 import "../styles/adventcalender.css";
-import hat from "../assets/hat.png";
 import son1 from "../assets/audio/1.mp3";
 import son2 from "../assets/audio/2.mp3";
 import son3 from "../assets/audio/3.mp3";
@@ -68,6 +67,30 @@ export default function AdventCalendar() {
         On est le {count}
         {count === 1 ? "er" : ""} décembre, il est temps douvrir le bon paquet !
       </div>
+      <div className="presents">
+        {data.map((l) => (
+          <div
+            className={
+              isLined.includes(`lutin_${l.id}`) ? "window-clicked" : "window"
+            }
+            key={l.id}>
+            <button type="button" onClick={openWindow}>
+              {isLined.includes(`lutin_${l.id}`) ? (
+                <></>
+              ) : (
+                <div className="cover">
+                  <p>{l.id}</p>
+                </div>
+              )}
+              {isLined.includes(`lutin_${l.id}`) ? (
+                <img src={l.picture} alt={l.name} id={`lutin_${l.id}`} />
+              ) : (
+                <img src={l.gift} alt="cadeau" id={`lutin_${l.id}`} />
+              )}
+            </button>
+          </div>
+        ))}
+      </div>
       <div>
         <ul className="list">
           {data.map((n) => (
@@ -81,30 +104,13 @@ export default function AdventCalendar() {
           ))}
         </ul>
       </div>
-      <div className="presents">
-        {data.map((l) => (
-          <div
-            className={
-              isLined.includes(`lutin_${l.id}`) ? "window-clicked" : "window"
-            }
-            key={l.id}>
-            <button type="button" onClick={openWindow}>
-              {isLined.includes(`lutin_${l.id}`) ? (
-                <img src={l.picture} alt={l.name} id={`lutin_${l.id}`} />
-              ) : (
-                <img src={hat} alt="chapeau lutin" id={`lutin_${l.id}`} />
-              )}
-              {isLined.includes(`lutin_${l.id}`) ? (
-                <></>
-              ) : (
-                <div className="cover">
-                  <p>{l.id}</p>
-                </div>
-              )}
-            </button>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
+
+// {
+//   "id": 25,
+//   "name": "Lutin Ayoub",
+//   "picture": "src/assets/Lutins/25.jpg",
+//   "gift": "src/assets/gift2.png"
+// }
