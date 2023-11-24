@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ayoubnormal from "../assets/ayoubnormal.png";
 import "../styles/Wakayoub.css";
 
@@ -17,47 +17,63 @@ function Wakayoub() {
     { id: 7, value: 7 },
     { id: 8, value: 8 },
   ];
-  const handleScore = () => {
-    // a verifier
-    // voir si on peut vérifier le style visible/invisible par exemple ?
-    setScore(score + 1);
+  const randomDisplay = () => {
+    let randomnumber2 = null;
+    randomnumber2 = Math.floor(Math.random() * 9);
+    setIsGoodId(randomnumber2);
   };
-  // on lance une boucle selon le timer ou un nombre de points à atteindre / ne pas atteindre (comme -43)
   const elfspawn = () => {
-    // while (score < 30 || score >= -15) {
+    //while (score < 30 || score >= -15) {
+
     // le timer aléatoire
     let randomnumber = null;
     randomnumber = Math.floor(Math.random() * 5);
-    setTimeout(() => {}, randomnumber);
-    let randomnumber2 = null;
-    randomnumber2 = Math.floor(Math.random() * 9);
-    console.log(randomnumber2);
-    setIsGoodId(randomnumber2);
+    setTimeout(() => {
+      randomDisplay();
+    }, randomnumber * 1000);
   };
+  const handleScore = (e) => {
+    const id = e.target.id;
+    // a verifier
+    // voir si on peut vérifier le style visible/invisible par exemple ?
+    if (score < 15 || score >= -5) {
+      if (id) {
+        setScore(score + 1);
+        elfspawn();
+      } else {
+        setScore(score - 1);
+        elfspawn();
+      }
+    } else if (score >= 15) {
+      console.log("you win");
+    } else console.log("you lose");
+  };
+  // on lance une boucle selon le timer ou un nombre de points à atteindre / ne pas atteindre (comme -43)
+
   return (
-    <div>
-      <button type="button">{score}</button>
-      <button type="button" onClick={elfspawn}>
-        ON COMMENCE UNE NOUVELLE PARTIE OU TU VAS CODER DES ALGHOS ?
-      </button>
-      {arrayademimole.map((darthmole) => (
-        <button type="button" key={darthmole.value} onClick={handleScore}>
-          PROUT
-          <img
-            src={ayoubnormal}
-            alt=""
-            className={isGoodId === darthmole.id ? "visible" : "invisible"}
-          />
+    <div className="waka">
+      <div className="start-game">
+        <p>Ton score : {score}</p>
+        <button type="button" onClick={elfspawn} className="start-game-button">
+          ON COMMENCE UNE NOUVELLE PARTIE OU TU VAS CODER DES ALGHOS ?
         </button>
-      ))}
+      </div>
+      <div className="game">
+        {arrayademimole.map((darthmole) => (
+          <button type="button" key={darthmole.value} onClick={handleScore}>
+            <img
+              src={ayoubnormal}
+              alt=""
+              className={isGoodId === darthmole.id ? "visible" : "invisible"}
+              id={isGoodId === darthmole.id ? darthmole.value : null}
+            />
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
 export default Wakayoub;
 
-// il faut un score qui s'affiche
-// il peut aller en neg ou pos
-// cliquer sur un lutin = +1 , cliquer sur un bouton vide = -1
 // faire une boucle quand on commence le jeu pour aller jusqu'à un score de 10 pour commencer
 // on sort à score +10 ou -3
-// quand je click sur un ayoub il doit disparaitre à nouveau (logique, on tape dessus)
