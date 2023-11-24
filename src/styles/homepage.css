@@ -9,6 +9,7 @@
 .choice button {
   width: 25rem;
   height: 3rem;
+  border-radius: 10px;
 }
 
 .choice a {
