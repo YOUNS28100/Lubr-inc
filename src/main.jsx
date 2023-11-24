@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import Wakayoub from "./components/Wakayoub.jsx";
-import HomePage from "./components/Homepage.jsx";
+import HomePage from "./components/HomePage.jsx";
 import AdventCalendar from "./components/AdventCalendar.jsx";
 import Teapot from "./pages/Teapot.jsx";
 
