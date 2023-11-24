@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import Wakayoub from "./components/Wakayoub.jsx";
 import HomePage from "./components/Homepage.jsx";
-import AdventCalendar from "./components/adventcalendar.jsx";
+import AdventCalendar from "./components/AdventCalendar.jsx";
 import Teapot from "./pages/Teapot.jsx";
 
 const router = createBrowserRouter([

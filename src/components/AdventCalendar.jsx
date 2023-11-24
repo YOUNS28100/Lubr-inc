@@ -66,6 +66,7 @@ export default function AdventCalendar() {
         setIsLined([...isLined, id]);
         setCount(count + 1);
         if (randomSound) {
+          randomSound.volume = 0.5;
           randomSound.play();
         }
       }
@@ -85,7 +86,8 @@ export default function AdventCalendar() {
     <div className="calendar">
       <div className="count">
         On est le {count}
-        {count === 1 ? "er" : ""} décembre, il est temps douvrir le bon paquet !
+        {count === 1 ? "er" : ""} décembre, il est temps d&apos;ouvrir le bon
+        paquet !
       </div>
       <div className="presents">
         {data.map((l) => (
@@ -93,7 +95,8 @@ export default function AdventCalendar() {
             className={
               isLined.includes(`lutin_${l.id}`) ? "window-clicked" : "window"
             }
-            key={l.id}>
+            key={l.id}
+          >
             <button type="button" onClick={openWindow}>
               {isLined.includes(`lutin_${l.id}`) ? (
                 <></>
@@ -117,12 +120,14 @@ export default function AdventCalendar() {
         </div>
       )} */}
       <div>
-        <ul className="list">
+        <h3>La liste des lutins du Père Noël</h3>
+        <ul id="lutinList" className="list">
           {data.map((n) => (
             <li
               className={isLined.includes(`lutin_${n.id}`) ? "line" : ""}
               id={n.id % 2 === 0 ? "red" : "green"}
-              key={n.id}>
+              key={n.id}
+            >
               {n.name}
             </li>
           ))}
