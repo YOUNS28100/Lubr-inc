@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.calendar button {
+  cursor: url("src/assets/sucreOrge2.png"), auto;
+}
+
 .calendar a {
   color: #fff;
 }
