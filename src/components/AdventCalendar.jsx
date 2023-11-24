@@ -10,7 +10,7 @@ import son5 from "../assets/audio/5.mp3";
 export default function AdventCalendar() {
   const [isLined, setIsLined] = useState([]);
   //const today = new Date().getDate(); // Utilise la date actuelle
-  const [showAlert, setShowAlert] = useState(false);
+  //const [showAlert, setShowAlert] = useState(false);
   const [count, setCount] = useState(1);
 
   const getRandomSound = () => {
@@ -31,29 +31,56 @@ export default function AdventCalendar() {
     }
   };
 
+  // const openWindow = (e) => {
+  //   // Supposons que l'ID de chaque case est de la forme "lutin_X"
+  //   const id = e.currentTarget.id;
+  //   const numberValue = parseInt(id.replace("lutin_", ""), 10); // Extrait le nombre de l'ID pour coller les numéros de case au jour du mois.
+
+  //   if (count === numberValue) {
+  //     if (isLined.includes(id)) {
+  //       setIsLined([...isLined]);
+  //     }
+  //   } else {
+  //     setIsLined([...isLined, id]);
+  //     setCount(count + 1);
+  //     const randomSound = getRandomSound();
+  //     if (randomSound) {
+  //       randomSound.play();
+  //       // } else {
+  //       //   setShowAlert(true);
+  //       //   setTimeout(() => {
+  //       //     setShowAlert(false);
+  //       //   }, 2000);
+  //       // }
+  //     }
+  //   }
+  // };
   const openWindow = (e) => {
-    // Supposons que l'ID de chaque case est de la forme "lutin_X"
-    const id = e.currentTarget.id;
-    const numberValue = parseInt(id.replace("lutin_", ""), 10); // Extrait le nombre de l'ID pour coller les numéros de case au jour du mois.
+    const id = e.target.id;
+    const numberid = parseInt(id.slice(6), 10);
     const randomSound = getRandomSound();
-    if (count === numberValue) {
+    if (count === numberid) {
       if (isLined.includes(id)) {
         setIsLined([...isLined]);
+      } else {
+        setIsLined([...isLined, id]);
+        setCount(count + 1);
+        if (randomSound) {
+          randomSound.play();
+        }
       }
     } else {
-      setIsLined([...isLined, id]);
-      setCount(count + 1);
-      if (randomSound) {
-        randomSound.play();
-      } else {
-        setShowAlert(true);
-        setTimeout(() => {
-          setShowAlert(false);
-        }, 2000);
-      }
+      // toast.error(`Qui ? Qui ? MAIS QUIIIIII ??`, {
+      //   position: "top-center",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // });
     }
   };
-
   return (
     <div className="calendar">
       <div className="count">
@@ -84,19 +111,18 @@ export default function AdventCalendar() {
           </div>
         ))}
       </div>
-      {showAlert && (
+      {/* {showAlert && (
         <div className="custom-alert">
           Oups ! Vous ne pouvez ouvrir que la case du jour actuel !
         </div>
-      )}
+      )} */}
       <div>
         <ul className="list">
           {data.map((n) => (
             <li
               className={isLined.includes(`lutin_${n.id}`) ? "line" : ""}
-              id={`lutin_${n.id}`}
-              key={n.id}
-              onClick={openWindow}>
+              id={n.id % 2 === 0 ? "red" : "green"}
+              key={n.id}>
               {n.name}
             </li>
           ))}
@@ -105,10 +131,3 @@ export default function AdventCalendar() {
     </div>
   );
 }
-
-// {
-//   "id": 25,
-//   "name": "Lutin Ayoub",
-//   "picture": "src/assets/Lutins/25.jpg",
-//   "gift": "src/assets/gift2.png"
-// }
