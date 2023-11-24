@@ -1,10 +1,11 @@
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Wakayoub from "./components/Wakayoub.jsx";
 import HomePage from "./components/Homepage.jsx";
 import AdventCalendar from "./components/adventcalendar.jsx";
+import Teapot from "./pages/Teapot.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: "*",
-        element: <h1>Error 404 : Not Found Ayoub</h1>,
+        element: <Teapot />,
       },
     ],
   },

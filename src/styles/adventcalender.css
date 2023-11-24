@@ -59,6 +59,7 @@
 }
 
 .presents button {
+  position: relative;
   border-radius: 20px;
   width: 4.8rem;
   height: 4.8rem;
@@ -101,9 +102,9 @@
   top: 0;
   position: absolute;
   background-color: yellow;
-  width: 5rem;
-  height: 5rem;
-  border-radius: 10px;
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 20px;
   transform-origin: 0;
   box-shadow: 1px 1px 12px #000;
   font-size: 3.5rem;
